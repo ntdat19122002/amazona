@@ -4,9 +4,9 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Store } from '../utils/Store';
 
 export default function Layout({ title, children }) {
-    const { state } = useContext(Store);
-    const { cart } = state;
-    const [cartItemsCount, setCartItemsCount] = useState(0);
+  const { state } = useContext(Store);
+  const { cart } = state;
+  const [cartItemsCount, setCartItemsCount] = useState(0);
   useEffect(() => {
     setCartItemsCount(cart.cartItems.reduce((a, c) => a + c.quantity, 0));
   }, [cart.cartItems]);
@@ -26,12 +26,12 @@ export default function Layout({ title, children }) {
             </Link>
             <div>
               <Link href="/cart" className="p-2">
-                    Cart
-                    {cartItemsCount > 0 && (
-                    <span className="ml-1 rounded-full bg-red-600 px-2 py-1 text-xs font-bold text-white">
-                      {cartItemsCount}
-                    </span>
-                  )}
+                Cart
+                {cartItemsCount > 0 && (
+                  <span className="ml-1 rounded-full bg-red-600 px-2 py-1 text-xs font-bold text-white">
+                    {cartItemsCount}
+                  </span>
+                )}
               </Link>
               <Link href="/login" className="p-2">
                 Login
